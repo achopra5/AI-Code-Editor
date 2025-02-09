@@ -36,14 +36,7 @@ An AI-powered code editor built on the **Judge0 IDE** repository, designed to en
 - **Database**: PostgreSQL (optional for user history & preferences)
 - **Containerization**: Docker
 
-## 📂 Project Structure
-```
-├── client/         # Frontend React application
-├── server/         # Backend API (Node.js, Express)
-├── ai-engine/      # AI-driven suggestion & bug detection
-├── scripts/        # Helper scripts for automation
-├── docs/           # Documentation & resources
-├── README.md       # Project overview
+
 ```
 
 ## 🛠 Installation & Setup
