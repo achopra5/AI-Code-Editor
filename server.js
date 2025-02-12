@@ -2,19 +2,27 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Load environment variables
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
-
-// Log the API key status
-console.log('OpenAI API Key:', process.env.OPENAI_API_KEY ? 'Configured' : 'Not Configured');
+const port = process.env.PORT || 3005;
 
 // Middleware
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
+
+// Debug middleware
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path}`);
+    next();
+});
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -27,6 +35,7 @@ app.get('/health', (req, res) => {
 // OpenAI proxy endpoint
 app.post('/api/chat', async (req, res) => {
     try {
+        // Validate API key
         if (!process.env.OPENAI_API_KEY) {
             console.error('OpenAI API key is not configured');
             return res.status(500).json({ 
@@ -37,6 +46,7 @@ app.post('/api/chat', async (req, res) => {
 
         const { message, codeContext } = req.body;
         
+        // Validate request body
         if (!message) {
             return res.status(400).json({ error: 'Message is required' });
         }
@@ -92,19 +102,10 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error('Global error handler:', err);
-    res.status(500).json({
-        error: 'Internal server error',
-        details: err.message
-    });
-});
-
 // Start server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
     console.log('Environment check:');
     console.log('- OpenAI API Key configured:', !!process.env.OPENAI_API_KEY);
     console.log('- NODE_ENV:', process.env.NODE_ENV || 'not set');
-}); 
+});
