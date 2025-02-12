@@ -1,96 +1,98 @@
-# AI Code Editor
+# Judge0 IDE with Integrated Chat Assistant
 
-An AI-powered code editor built on the **Judge0 IDE** repository, designed to enhance the coding experience with intelligent features such as inline chat assistance, AI-powered bug detection, autocomplete suggestions, and real-time code fixes.
+## Overview
 
-## 🚀 Features
+The Judge0 IDE is a web-based integrated development environment that allows users to write, compile, and run code in various programming languages. This version includes an integrated Chat Assistant powered by OpenAI, providing real-time assistance and code suggestions.
 
-### 🔹 AI Chat Interface
-- Allows users to interact with an AI assistant within the editor.
-- Provides explanations, code suggestions, and debugging tips.
+## Features
 
-### 🔹 Inline Code Assistance
-- Users can select a segment of code and initiate an AI-powered chat specific to that code block.
-- Offers quick fixes and optimizations.
+- **Multi-language Support**: Write and execute code in multiple programming languages.
+- **Integrated Chat Assistant**: Get real-time help and code suggestions from the AI assistant.
+- **User-friendly Interface**: A clean and intuitive interface for coding.
+- **Live Code Execution**: Compile and run code directly in the browser.
 
-### 🔹 Autocomplete Suggestions
-- AI-based autocomplete while users type to boost productivity.
-- Supports multiple programming languages.
+## Table of Contents
 
-### 🔹 Intelligent Bug Finder
-- Detects logical and syntax errors in the code.
-- Suggests fixes with AI-driven explanations.
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Configuration](#api-configuration)
+- [Contributing](#contributing)
+- [License](#license)
 
-### 🔹 Compilation & Execution
-- Uses **Judge0** to compile and execute code in multiple languages.
-- Ensures minimal latency for real-time feedback.
-
-### 🔹 Smart Recommendations
-- Adapts suggestions based on user coding patterns and previous interactions.
-- Enhances learning and debugging workflow.
-
-## 🛠 Tech Stack
-- **Frontend**: React, Tailwind CSS
-- **Backend**: Node.js, Express
-- **AI Integration**: OpenAI API (or alternative LLMs like DeepSeek R-1)
-- **Code Execution**: Judge0 API
-- **Database**: PostgreSQL (optional for user history & preferences)
-- **Containerization**: Docker
-
-
-```
-
-## 🛠 Installation & Setup
+## Installation
 
 ### Prerequisites
-- Node.js & npm
-- Docker (optional for Judge0 setup)
+
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
 ### Steps
-1. **Clone the Repository**
-   ```sh
-   git clone https://github.com/your-username/ai-code-editor.git
-   cd ai-code-editor
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/judge0-ide.git
+   cd judge0-ide
    ```
 
-2. **Install Dependencies**
-   ```sh
-   cd client && npm install
-   cd ../server && npm install
+2. **Install Dependencies**:
+   ```bash
+   npm install
    ```
 
-3. **Run the Development Server**
-   ```sh
-   npm run dev
+3. **Set Up Environment Variables**:
+   - Create a `.env` file in the root directory and add your OpenAI API key:
+     ```plaintext
+     OPENAI_API_KEY=your_openai_api_key_here
+     ```
+
+## Usage
+
+### Running the Application
+
+1. **Start a Local Development Server**:
+   - You can use one of the following methods to run the application:
+
+   **Option 1: Use `npx serve`**:
+   ```bash
+   npx serve
    ```
 
-4. **Run Backend API**
-   ```sh
-   npm start
+   **Option 2: Use Python’s Simple HTTP Server**:
+   - For Python 3:
+     ```bash
+     python -m http.server 3000
+     ```
+   - For Python 2:
+     ```bash
+     python -m SimpleHTTPServer 3000
+     ```
+
+   **Option 3: Use Live Server**:
+   ```bash
+   npm install -g live-server
+   live-server --port=3000
    ```
 
-5. **(Optional) Setup Judge0 Locally**
-   ```sh
-   docker-compose up -d
-   ```
+2. **Open the IDE in Your Browser**:
+   - Navigate to `http://localhost:3000` to access the Judge0 IDE.
 
-## 🧩 Future Enhancements
-- **Integration with GitHub Copilot-style suggestions**
-- **More advanced debugging explanations**
-- **Support for real-time collaboration**
-- **Enhanced LLM fine-tuning for better accuracy**
+## API Configuration
 
-## 🤝 Contributing
-Contributions are welcome! Feel free to open issues and pull requests to improve this project.
+- Ensure that your OpenAI API key is correctly set in the `.env` file.
+- The application will use this key to communicate with the OpenAI API for the Chat Assistant functionality.
 
-## 📜 License
-MIT License - See [LICENSE](LICENSE) for details.
+## Contributing
 
-## 🔗 Resources
-- [Judge0](https://judge0.com/)
-- [Judge0 IDE GitHub](https://github.com/judge0/ide)
-- [DeepSeek R-1 API](https://openrouter.ai/deepseek/deepseek-r1:free)
-- [Cursor Prompt Design](https://www.cursor.com/blog/prompt-design)
-- [Pear AI GitHub](https://github.com/trypear/pearai-app)
+Contributions are welcome! Please feel free to submit a pull request or open an issue for any enhancements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
-**Built with ❤️ for developers who want an AI-powered coding experience!**
+
+## Acknowledgments
+
+- [Judge0](https://judge0.com/) for the coding environment.
+- [OpenAI](https://openai.com/) for the AI assistant.
+
